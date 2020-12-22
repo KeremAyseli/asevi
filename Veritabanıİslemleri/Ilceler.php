@@ -9,9 +9,9 @@ public $SehirId;
 public $MahalleId;
 public $SokakId;
 
-    public function __construct()
+    public function __construct($id)
     {
-        $sorgu="select * from ilceler";
+        $sorgu="select * from ilceler where IlceId=$id";
         $veriTabanı=new veriTabanıSorgular();
         $gelenVeriler=$veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
         $this->setIlceId($gelenVeriler["IlceId"]);

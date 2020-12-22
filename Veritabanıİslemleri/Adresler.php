@@ -90,10 +90,10 @@ class Adresler
         $this->SokakId = $SokakId;
     }
 
-    public function __construct()
+    public function __construct($id)
     {
         $VeriTabani=new veriTabanıSorgular();
-        $sorgu="select * from adresler";
+        $sorgu="select * from adresler where SehirId=$id";
      $gelenveriler=$VeriTabani->VeriCekme($sorgu,"Veri Çekme",$VeriTabani->Baglnatı());
         $this->setSehirId($gelenveriler["SehirId"]);
         $this->setSehirIsmi($gelenveriler["SehirIsmi"]);
