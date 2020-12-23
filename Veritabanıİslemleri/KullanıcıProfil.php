@@ -155,10 +155,10 @@ class KullanıcıProfil
         $this->uyelikTarihi = $uyelikTarihi;
     }
     public $uyelikTarihi;
-     function __construct($ıd)
+     function __construct($id)
      {
          $kullanıcıSorgulama=new veriTabanıSorgular();
-         $sorgu="Select * from kullanıcılar where Id=$ıd";
+         $sorgu="Select * from kullanıcılar where Id=$id";
 
        $kullanıcıBilgileri=  $kullanıcıSorgulama->VeriCekme($sorgu,"Kisi arama",$kullanıcıSorgulama->Baglnatı());
 

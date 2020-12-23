@@ -8,13 +8,13 @@ if (isset($_POST['Eposta']) && $_POST['Sifre']) {
     echo $sifre;
     $sorgular = new veriTabanıSorgular();
     $sorgu = "SELECT * from kullanıcılar WHERE sifre='$sifre' AND Eposta='$eposta'";
-    $kullanıcıIdGet="SELECT id from kullanıcılar WHERE Eposta='$eposta'";
+    $kullanıcıIdGet="SELECT Id from kullanıcılar WHERE Eposta='$eposta'";
 
 
    $yonlendirme = $sorgular->girisYap( $eposta, $sifre);
-    $kullanıcıIdg=$sorgular->VeriCekme($kullanıcıIdGet,"KullanıcıIdOgrenme");
+    $kullanıcıIdg=$sorgular->VeriCekme($kullanıcıIdGet,"KullanıcıIdOgrenme",$sorgular->Baglnatı());
 
-    $_SESSION["id"]=$kullanıcıIdg["id"];
+    $_SESSION["id"]=$kullanıcıIdg["Id"];
     echo $_SESSION["id"]." seasin";
 
 } else {
