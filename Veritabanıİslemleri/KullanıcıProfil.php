@@ -164,11 +164,11 @@ class KullanıcıProfil
 
          $this->setIsim($kullanıcıBilgileri["isim"]);
          $this->setSoyisim($kullanıcıBilgileri["soyisim"]);
-         $this->setDogumGunu($kullanıcıBilgileri["dogumGunu"]);
+         $this->setDogumGunu($kullanıcıBilgileri["dogunGunu"]);
          $this->setSifre($kullanıcıBilgileri["sifre"]);
          $this->setEposta($kullanıcıBilgileri["Eposta"]);
          $this->setUyelikTarihi(date("d-m-Y",strtotime($kullanıcıBilgileri["uyelikTarihi"])));
-         $this->setProfilFotografı($kullanıcıBilgileri["profilResmiAdres"]);
+         $this->setProfilFotografı($kullanıcıBilgileri["profilResimAdresi"]);
          $this->setHesapTipi($kullanıcıBilgileri["hesapTipi"]);
 
      }

@@ -27,8 +27,8 @@ class veriTabanıSorgular
    $kullanıcıTipi=mysqli_real_escape_string($this->Baglnatı(),$kullanıcıTipi);
    $profilResimAdres=mysqli_real_escape_string($this->Baglnatı(),$profilResimAdres);
       $uyelikTarihi=date("Y-m-d");
-
-      $kisiEklemeSorgusu = "INSERT INTO kullanıcılar(Id,isim,soyisim,sifre,Eposta,dogumGunu,hesapTipi,uyelikTarihi,profilResmiAdres)VALUES( $id,'$isim','$soyisim','$sifre','$eposta',$dogumGunu,$kullanıcıTipi,'$uyelikTarihi','$profilResimAdres')";
+      $kullanıcıDogumGunu=date($dogumGunu);
+      $kisiEklemeSorgusu = "INSERT INTO kullanıcılar(id,isim,soyisim,sifre,Eposta,dogunGunu,hesapTipi,uyelikTarihi,profilResimAdresi)VALUES( $id,'$isim','$soyisim','$sifre','$eposta','$kullanıcıDogumGunu',$kullanıcıTipi,'$uyelikTarihi','$profilResimAdres')";
        $this->Degistirme($kisiEklemeSorgusu,"KisiEkleme",$this->Baglnatı());
   }
 
@@ -45,7 +45,7 @@ class veriTabanıSorgular
           header("Location:./anasayfa.php");
       }
       else{
-          header("Location:./GirisEkrani.php");
+          header("Location:./login.html");
       }
   }
 

@@ -23,5 +23,5 @@ echo $kullanıcıBilgiler->getIsim()."<br>";
 echo $kullanıcıBilgiler->getSoyisim()."<br>";
 echo $kullanıcıBilgiler->getDogumGunu()."<br>";
 echo $kullanıcıBilgiler->getUyelikTarihi()."<br>";
-
+echo '<img src="'.$kullanıcıBilgiler->getProfilFotografı().'">';
 ?>
