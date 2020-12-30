@@ -16,6 +16,7 @@ if(isset($_POST['Id'])&&isset($_POST['isim'])&&isset($_POST['soyisim'])&&isset($
      }
  }
     require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
+    require ($_SERVER["DOCUMENT_ROOT"]."/asevi/Yonlendirme/Yonlendirici.php");
     $id=$_POST['Id'];
     $isim=$_POST['isim'];
     $soyisim=$_POST['soyisim'];
@@ -25,7 +26,14 @@ if(isset($_POST['Id'])&&isset($_POST['isim'])&&isset($_POST['soyisim'])&&isset($
     $resim="../resimler/".$_FILES['resim']['name'];
     echo $id." ".$isim." ".$soyisim;
     $ekleme=new veriTabanıSorgular();
-    $ekleme->yeniKullanıcı($id,$isim,$soyisim,$eposta,$sifre,$dogumGunu,0,$resim);
+    $yonlendirme=new Yonlendirici();
+  $kontrol= $ekleme->yeniKullanıcı($id,$isim,$soyisim,$eposta,$sifre,$dogumGunu,0,$resim);
+  if($kontrol==1){
+ $yonlendirme->anaSayfa();
+  }
+  else{
+  $yonlendirme->kayıtEkranı();
+  }
 }
 else{
     echo '<DOCUTYPE html>

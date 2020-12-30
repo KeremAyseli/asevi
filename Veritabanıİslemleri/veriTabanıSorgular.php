@@ -29,7 +29,8 @@ class veriTabanıSorgular
       $uyelikTarihi=date("Y-m-d");
       $kullanıcıDogumGunu=date($dogumGunu);
       $kisiEklemeSorgusu = "INSERT INTO kullanıcılar(id,isim,soyisim,sifre,Eposta,dogunGunu,hesapTipi,uyelikTarihi,profilResimAdresi)VALUES( $id,'$isim','$soyisim','$sifre','$eposta','$kullanıcıDogumGunu',$kullanıcıTipi,'$uyelikTarihi','$profilResimAdres')";
-       $this->Degistirme($kisiEklemeSorgusu,"KisiEkleme",$this->Baglnatı());
+      $kayıtEkelemKontrol= $this->Degistirme($kisiEklemeSorgusu,"KisiEkleme",$this->Baglnatı());
+      return $kayıtEkelemKontrol;
   }
 
     /**

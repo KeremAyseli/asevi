@@ -19,6 +19,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/KullanıcıProfi
 require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/YemekDagıtılanYerler.php");
 require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/AdresBulma.php");
 
+echo $_SESSION["hesapTipi"]."a";
 $yemekDagıtalanYerler=new YemekDagıtılanYerler();
 echo $yemekDagıtalanYerler->getId()."<br>";
 for($i=1;$i<$yemekDagıtalanYerler->getKisiListesli();$i++){
