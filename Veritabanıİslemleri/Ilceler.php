@@ -1,6 +1,6 @@
 <?php
 
-require ("veriTabanıSorgular.php");
+
 class Ilceler
 {
 public $IlceId;

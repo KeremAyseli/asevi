@@ -112,4 +112,5 @@ class veriTabanıSorgular
     function Guncelleme($sorgu,$islemTipi){
 
     }
+
 }

@@ -12,11 +12,20 @@
 </body>
 </html>
 <?php
+
 session_start();
+require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
 require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/KullanıcıProfil.php");
+require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/YemekDagıtılanYerler.php");
+require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/AdresBulma.php");
 
-
-
+$yemekDagıtalanYerler=new YemekDagıtılanYerler();
+echo $yemekDagıtalanYerler->getId()."<br>";
+for($i=1;$i<$yemekDagıtalanYerler->getKisiListesli();$i++){
+    echo "<div>$i deneme</div>";
+    $adresleri=new Adresler($yemekDagıtalanYerler->getSokakId());
+    echo  $adresleri->getSehirIsmi();
+}
 echo $_SESSION["id"];
 $kullanıcıBilgiler=new KullanıcıProfil($_SESSION["id"]);
 echo $kullanıcıBilgiler->getIsim()."<br>";

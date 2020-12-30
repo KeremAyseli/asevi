@@ -1,6 +1,6 @@
 <?php
 
-require ("veriTabanıSorgular.php");
+
 class Mahalleler
 {
    public $IlceId;

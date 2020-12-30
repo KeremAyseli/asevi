@@ -1,6 +1,6 @@
 <?php
 
-require ("veriTabanıSorgular.php");
+
 class Adresler
 {
 
@@ -96,8 +96,8 @@ class Adresler
         $sorgu="select * from adresler where SehirId=$id";
      $gelenveriler=$VeriTabani->VeriCekme($sorgu,"Veri Çekme",$VeriTabani->Baglnatı());
         $this->setSehirId($gelenveriler["SehirId"]);
-        $this->setSehirIsmi($gelenveriler["SehirIsmi"]);
-        $this->setIlceId($gelenveriler["IlceId"]);
+        $this->setSehirIsmi($gelenveriler["Sehirisim"]);
+        $this->setIlceId($gelenveriler["ilçeId"]);
         $this->setMahalleId($gelenveriler["MahalleId"]);
         $this->setSokakId($gelenveriler["SokakId"]);
     }
