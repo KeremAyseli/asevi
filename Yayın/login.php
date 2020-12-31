@@ -20,7 +20,7 @@ if (isset($_POST['Eposta']) && $_POST['Sifre']) {
     echo $_SESSION["id"]." seasin";
     $_SESSION["hesapTipi"]=$kullanıcıIdg["hesapTipi"];
     echo $kullanıcıIdg["hesapTipi"];
-    $yonlendirme->Giris($kullanıcıIdg["hesapTipi"]);
+    $yonlendirme->Giris($kullanıcıIdg["hesapTipi"],$sifre,$eposta);
 } else {
     echo "neden boş lan";
 }

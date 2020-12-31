@@ -29,7 +29,7 @@ if(isset($_POST['Id'])&&isset($_POST['isim'])&&isset($_POST['soyisim'])&&isset($
     $yonlendirme=new Yonlendirici();
   $kontrol= $ekleme->yeniKullanıcı($id,$isim,$soyisim,$eposta,$sifre,$dogumGunu,0,$resim);
   if($kontrol==1){
- $yonlendirme->anaSayfa();
+ $yonlendirme->anaSayfaH();
   }
   else{
   $yonlendirme->kayıtEkranı();
