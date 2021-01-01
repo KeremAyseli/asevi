@@ -18,17 +18,15 @@ function Giris($hesapTipi,$sifre,$eposta){
 
     }
     else{
-        header("Location:./login.html");
+        header("Location:../Yayın/login.html");
     }
 
 }
-function anaSayfaH(){
-    header("Location:./anasayfa.html");
-}
-    function anaSayfaP(){
-        header("Location:./anasayfa.php");
+
+    function anaSayfa(){
+        header("Location:../Yayın/anasayfa.php");
     }
 function kayıtEkranı(){
-    header("Location:./kayıtEkranı.html");
+    header("Location:../Yayın/kayıtEkranı.html");
 }
 }
