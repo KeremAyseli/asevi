@@ -34,11 +34,18 @@ public $KisiListesli;
         $sorgu="select * from yemekdagıtılanyerler ";
         $veriTabanı=new veriTabanıSorgular();
         $gelenVeriler= $veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
-        $this->setId($gelenVeriler["id"]);
+        if($gelenVeriler!=null)
+        {$this->setId($gelenVeriler["id"]);
         $this->setSokakId($gelenVeriler["sokakId"]);
         $this->setYemekDagıtanKisiId($gelenVeriler["yemekDagıtanKisi"]);
         $this->KisiListesli=$gelenVeriler;
         $this->KisiListesli= count($gelenVeriler);
+        }
+    }
+    public function YerEKle($SokakId,$YemekDagıtanKisiId){
+        $sorgu="INSERT INTO yemekdagıtılanyerler(sokakId, yemekDagıtanKisi) VALUES ($SokakId,$YemekDagıtanKisiId)";
+        $veriTabanı=new veriTabanıSorgular();
+        $gelenVeriler=$veriTabanı->Degistirme($sorgu,"Kayıt ekleme",$veriTabanı->Baglnatı());
     }
 
     /**
