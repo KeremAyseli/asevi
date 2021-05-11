@@ -1,6 +1,5 @@
 <?php
 
-
 class Ilceler
 {
 public $IlceId;
@@ -8,8 +7,23 @@ public $IlceIsim;
 public $SehirId;
 public $MahalleId;
 public $SokakId;
+public $IlceSayısı;
 
-    public function __construct($id)
+
+
+    public function __construct()
+    {
+        $sorgu="select * from ilceler";
+        $veriTabanı=new veriTabanıSorgular();
+        $gelenVeriler=$veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
+        $this->setIlceId($gelenVeriler["IlceId"]);
+        $this->setIlceIsim($gelenVeriler["IlceIsım"]);
+        $this->setSehirId($gelenVeriler["SehirId"]);
+        $this->setMahalleId($gelenVeriler["MahalleId"]);
+        $this->setSokakId($gelenVeriler["SokakId"]);
+        $this->setIlceSayısı($veriTabanı->satırSayısı);
+    }
+    public function IlceGetir($id)
     {
         $sorgu="select * from ilceler where IlceId=$id";
         $veriTabanı=new veriTabanıSorgular();
@@ -19,6 +33,7 @@ public $SokakId;
         $this->setSehirId($gelenVeriler["SehirId"]);
         $this->setMahalleId($gelenVeriler["MahalleId"]);
         $this->setSokakId($gelenVeriler["SokakId"]);
+        $this->setIlceSayısı($veriTabanı->satırSayısı);
     }
     public function Guncelleme($id){
         $sorgu="update ilceler set IlceIsım=$this->IlceIsim,

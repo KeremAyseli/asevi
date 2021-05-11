@@ -14,10 +14,10 @@
 <?php
 
 session_start();
-require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
-require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/KullanıcıProfil.php");
-require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/YemekDagıtılanYerler.php");
-require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/AdresBulma.php");
+include($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
+include($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/KullanıcıProfil.php");
+include($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/YemekDagıtılanYerler.php");
+include($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/AdresBulma.php");
 
 echo $_SESSION["hesapTipi"]."a";
 $yemekDagıtalanYerler=new YemekDagıtılanYerler();

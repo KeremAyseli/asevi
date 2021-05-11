@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-require ($_SERVER["DOCUMENT_ROOT"]."/asevi/Yonlendirme/Yonlendirici.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/asevi/Yonlendirme/Yonlendirici.php");
 if (isset($_POST['Eposta']) && $_POST['Sifre']) {
-    require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
     $eposta = $_POST['Eposta'];
     $sifre = $_POST['Sifre'];
     echo $sifre;

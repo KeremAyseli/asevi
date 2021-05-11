@@ -1,6 +1,6 @@
 <?php
 
-require ("veriTabanıSorgular.php");
+include ("veriTabanıSorgular.php");
 class GirisEkrani
 {
   public $KullanıcıId;

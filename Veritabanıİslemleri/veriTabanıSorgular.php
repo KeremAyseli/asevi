@@ -3,8 +3,25 @@
 
 class veriTabanıSorgular
 {
+    public $satırSayısı;
+
+    /**
+     * @param mixed $satırSayısı
+     */
+    public function setSatırSayısı($satırSayısı): void
+    {
+        $this->satırSayısı = $satırSayısı;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSatırSayısı()
+    {
+        return $this->satırSayısı;
+    }
     function Baglnatı(){
-        return $Baglnatı=new mysqli("localhost","root",null,"deneme");
+        return $Baglnatı=new PDO("mysql:host=localhost;dbname=asevi", "root", null);
     }
     /**
      * @param $id
@@ -18,14 +35,7 @@ class veriTabanıSorgular
      * VeriTabanına kullanıcı eklemeye yarayan fonksiyon.
      */
   function yeniKullanıcı($id,$isim,$soyisim,$eposta,$sifre,$dogumGunu,$kullanıcıTipi,$profilResimAdres){
-   $id=mysqli_real_escape_string($this->Baglnatı(),$id);
-   $isim=mysqli_real_escape_string($this->Baglnatı(),$isim);
-   $soyisim=mysqli_real_escape_string($this->Baglnatı(),$soyisim);
-   $eposta=mysqli_real_escape_string($this->Baglnatı(),$eposta);
-   $sifre=mysqli_real_escape_string($this->Baglnatı(),$sifre);
-   $dogumGunu=mysqli_real_escape_string($this->Baglnatı(),$dogumGunu);
-   $kullanıcıTipi=mysqli_real_escape_string($this->Baglnatı(),$kullanıcıTipi);
-   $profilResimAdres=mysqli_real_escape_string($this->Baglnatı(),$profilResimAdres);
+
       $uyelikTarihi=date("Y-m-d");
       $kullanıcıDogumGunu=date($dogumGunu);
       $kisiEklemeSorgusu = "INSERT INTO kullanıcılar(id,isim,soyisim,sifre,Eposta,dogunGunu,hesapTipi,uyelikTarihi,profilResimAdresi)VALUES( $id,'$isim','$soyisim','$sifre','$eposta','$kullanıcıDogumGunu',$kullanıcıTipi,'$uyelikTarihi','$profilResimAdres')";
@@ -95,15 +105,12 @@ class veriTabanıSorgular
      *eğer sıkıntısız çalışırsa tabloda olan verileri geri döndürür.
      */
     function VeriCekme($sorgu,$islenTipi,$baglantı){
-        if ($baglantı->connect_errno) {
-            die("Bağlantı Kurulamadı" . $baglantı->connect_error);
-        }
-        $sonuc=$baglantı->query($sorgu);
-        if($sonuc->num_rows>0){
 
-            while ($satırlar=$sonuc->fetch_assoc()){
-                return $satırlar;
-            }
+        $sonuc=$baglantı->query($sorgu);
+
+        if($sonuc->rowCount()>0){
+           $this->setSatırSayısı($sonuc->rowCount());
+        return $sonuc->fetchAll();
 
         }
         else{

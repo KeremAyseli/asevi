@@ -1,6 +1,6 @@
 <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
-    require ($_SERVER['DOCUMENT_ROOT']."/asevi/Veritabanıİslemleri/YemekDagıtılanYerler.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
+include ($_SERVER['DOCUMENT_ROOT']."/asevi/Veritabanıİslemleri/YemekDagıtılanYerler.php");
 if($_POST['sokakId']!=null&&$_POST['yemekDagıtanKisi']!=null){
     echo "işlem başı";
     $sokakId=$_POST['sokakId'];

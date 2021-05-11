@@ -3,21 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
 </head>
 <body>
 <form action="../sayfaİslemleri/yemekVerme.php" method="post">
-    <label>İlçe girin</label>
-    <select>
-        <option value="Eyüpsultan">EyüpSultan</option>
-        <option value="Eyüpsultan">EyüpSultan</option>
-    </select><br>
-    <label>Mahalle girin</label>
-    <select>
-        <option value="Sakarya">sakarya</option>
-        <option value="Sakarya">sakarya</option>
-    </select><br>
+
     <label>Sokak girin</label>
-    <select name="sokakId">
+    <select name="sokakId" id="sokakId"onchange="listele('Sokaklar')">
         <option value="1">beşirgazi</option>
         <option value="2">berşigazi alt sokak</option>
     </select><br>
@@ -29,7 +21,28 @@
 </form>
 </body>
 </html>
+<script>
+  var sokakId= $("#sokakId").val();
+function listele(tablo){
+  $.ajax({type:"POST",
+      data:{"SokakId":sokakId,"TabloIsım":tablo},
+      url:"../sayfaİslemleri/yemekVermeJs.php",
 
-<?php
+      success:
+          function (result){
+              console.log(result);
+               var jsonParcalama=JSON.parse(result);
 
-?>
+               var secme=$("<select>").appendTo("body");
+             for(var i=0;i<jsonParcalama.length;i++)
+             {secme.append(new Option(jsonParcalama[i].SokakIsım,jsonParcalama[i].SokakId));}
+          },
+      error(result){
+      alet(result);
+      }
+  });
+}
+</script>
+
+
+

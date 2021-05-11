@@ -1,9 +1,9 @@
 <?php
 
-require ("Adresler.php");
-require ("Ilceler.php");
-require ("MahalleDurum.php");
-require ("Sokaklar.php");
+include ("Adresler.php");
+include ("Ilceler.php");
+include ("MahalleDurum.php");
+include ("Sokaklar.php");
 class AdresBulma
 {
     public $Sehir;
