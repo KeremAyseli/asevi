@@ -111,7 +111,6 @@ class veriTabanıSorgular
         if($sonuc->rowCount()>0){
            $this->setSatırSayısı($sonuc->rowCount());
         return $sonuc->fetchAll();
-
         }
         else{
             return 0;

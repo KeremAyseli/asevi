@@ -35,7 +35,10 @@ function listele(tablo){
 
                var secme=$("<select>").appendTo("body");
              for(var i=0;i<jsonParcalama.length;i++)
-             {secme.append(new Option(jsonParcalama[i].SokakIsım,jsonParcalama[i].SokakId));}
+             {
+                 secme.attr("onchange","listele('"+tablo+"')");
+                 secme.append(new Option(jsonParcalama[i].SokakIsım,jsonParcalama[i].SokakId));
+             }
           },
       error(result){
       alet(result);
