@@ -88,7 +88,7 @@ class veriTabanıSorgular
             die("Bağlantı Kurulamadı" . $baglantı->connect_error);
         }
         $sonuc=$baglantı->query($sorgu);
-        if($sonuc->num_rows>0){
+        if($sonuc->rowCount()>0){
 
             return 1;
         }
@@ -105,7 +105,6 @@ class veriTabanıSorgular
      *eğer sıkıntısız çalışırsa tabloda olan verileri geri döndürür.
      */
     function VeriCekme($sorgu,$islenTipi,$baglantı){
-
         $sonuc=$baglantı->query($sorgu);
 
         if($sonuc->rowCount()>0){

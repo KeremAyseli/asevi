@@ -8,7 +8,7 @@ function Giris($hesapTipi,$sifre,$eposta){
     $sorgu="SELECT * from kullanıcılar WHERE sifre='$sifre' AND Eposta='$eposta'";
 
     $gelenDeger= $veriTabanı->VeriDorulama($sorgu,"Giriş",$veriTabanı->Baglnatı());
-    if($gelenDeger==1){
+    if($gelenDeger){
         if($hesapTipi==1){
             header("Location:../admin/adminPanel.php");
         }

@@ -16,11 +16,9 @@ if (isset($_POST['Eposta']) && $_POST['Sifre']) {
     $kullanıcıIdg=$sorgular->VeriCekme($kullanıcıIdGet,"KullanıcıIdOgrenme",$sorgular->Baglnatı());
 
 
-    $_SESSION["id"]=$kullanıcıIdg["id"];
-    echo $_SESSION["id"]." seasin";
-    $_SESSION["hesapTipi"]=$kullanıcıIdg["hesapTipi"];
-    echo $kullanıcıIdg["hesapTipi"];
-    $yonlendirme->Giris($kullanıcıIdg["hesapTipi"],$sifre,$eposta);
+    $_SESSION["id"]=$kullanıcıIdg[0]["id"];
+    $_SESSION["hesapTipi"]=$kullanıcıIdg[0]["hesapTipi"];
+    $yonlendirme->Giris($kullanıcıIdg[0]["hesapTipi"],$sifre,$eposta);
 } else {
     echo "neden boş lan";
 }

@@ -1,5 +1,5 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"]."/Veritabanıİslemleri/KullanıcıProfil.php");
+require($_SERVER["DOCUMENT_ROOT"]."asevi/Veritabanıİslemleri/KullanıcıProfil.php");
 
 $veriTabanı=new KullanıcıProfil(17);
 echo "Onceki sifre".$veriTabanı->getSifre();
