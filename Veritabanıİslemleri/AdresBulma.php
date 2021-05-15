@@ -4,6 +4,7 @@ include ("Adresler.php");
 include ("Ilceler.php");
 include ("MahalleDurum.php");
 include ("Sokaklar.php");
+include ("Mahalleler.php");
 class AdresBulma
 {
     public $Sehir;
@@ -77,14 +78,20 @@ class AdresBulma
     }
 
     public function __construct($id)
-    {$sokak=new Sokaklar($id);
+    {
+        $sokak=new Sokaklar($id);
     $this->setSokak($sokak->getSokakIsmı());
-    $mahalle=new Mahalleler($sokak->getMahalleId());
+
+    $mahalle=new Mahalleler($sokak->getMahalleId()[0]);
     $this->setMahalle($mahalle->getMahalleIsmı());
-    $ilçe=new Ilceler($mahalle->getMahalleId());
+
+    $ilçe=new Ilceler($mahalle->getIlceId()[0]);
     $this->setIlce($ilçe->getIlceIsim());
+
     $şehir=new Adresler($ilçe->getSehirId());
     $this->setSehir($şehir->getSehirIsmi());
+
+
     }
 
 

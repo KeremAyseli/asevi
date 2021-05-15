@@ -3,9 +3,9 @@
 
 class Sokaklar
 {
-public $SokakId;
-public $SokakIsmı;
-public $MahalleId;
+public $SokakId=array();
+public $SokakIsmı=array();
+public $MahalleId=array();
 
 
     public function __construct($id)
@@ -13,9 +13,9 @@ public $MahalleId;
       $sorgu="select * from sokaklar where SokakId=$id";
       $veriTabani=new veriTabanıSorgular();
      $gelenVeriler= $veriTabani->VeriCekme($sorgu,"Veri Cekme",$veriTabani->Baglnatı());
-     $this->setSokakId($gelenVeriler["SokakId"]);
-     $this->setSokakIsmı($gelenVeriler["SokakIsmı"]);
-     $this->setMahalleId($gelenVeriler["MahalleId"]);
+     $this->setSokakId($gelenVeriler[0]["SokakId"]);
+     $this->setSokakIsmı($gelenVeriler[0]["SokakIsım"]);
+     $this->setMahalleId($gelenVeriler[0]["MahalleId"]);
     }
     public function Guncelle($id){
      $sorgu="update sokaklar set SokakIsmı=$this->SokakIsmı,MahalleId=$this->MahalleId where SokakId=$id";
@@ -37,7 +37,7 @@ public $MahalleId;
      */
     public function setSokakId($SokakId): void
     {
-        $this->SokakId = $SokakId;
+       array_push( $this->SokakId , $SokakId);
     }
 
     /**
@@ -53,7 +53,7 @@ public $MahalleId;
      */
     public function setSokakIsmı($SokakIsmı): void
     {
-        $this->SokakIsmı = $SokakIsmı;
+      array_push( $this->SokakIsmı , $SokakIsmı);
     }
 
     /**
@@ -69,7 +69,7 @@ public $MahalleId;
      */
     public function setMahalleId($MahalleId): void
     {
-        $this->MahalleId = $MahalleId;
+       array_push( $this->MahalleId , $MahalleId);
     }
 
 

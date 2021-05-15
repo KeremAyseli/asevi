@@ -3,10 +3,9 @@
 
 class YemekDagıtılanYerler
 {
-public $id;
-public $sokakId;
-public $yemekDagıtanKisiId;
-public $KisiListesli;
+    public $id = array();
+    public $sokakId=array();
+    public $yemekDagıtanKisiId=array();
 
     /**
      * @return int
@@ -15,37 +14,42 @@ public $KisiListesli;
     {
         return $this->KisiListesli;
     }
+
     /**
      * Seçilen yerde yemek dağıtılıp dağıtılmadığını listeler.
      * @param $id
      */
     public function YerSec($id)
     {
-        $sorgu="select * from yemekDagıtılanYerler where id=$id";
-        $veriTabanı=new veriTabanıSorgular();
-       $gelenVeriler= $veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
-       $this->setId($gelenVeriler["id"]);
+        $sorgu = "select * from yemekDagıtılanYerler where id=$id";
+        $veriTabanı = new veriTabanıSorgular();
+        $gelenVeriler = $veriTabanı->VeriCekme($sorgu, "Veri çekme", $veriTabanı->Baglnatı());
+        $this->setId($gelenVeriler["id"]);
         $this->setSokakId($gelenVeriler["sokakId"]);
         $this->setYemekDagıtanKisiId($gelenVeriler["yemekDagıtanKisiId"]);
     }
 
     public function __construct()
     {
-        $sorgu="select * from yemekdagıtılanyerler ";
-        $veriTabanı=new veriTabanıSorgular();
-        $gelenVeriler= $veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
-        if($gelenVeriler!=null)
-        {$this->setId($gelenVeriler["id"]);
-        $this->setSokakId($gelenVeriler["sokakId"]);
-        $this->setYemekDagıtanKisiId($gelenVeriler["yemekDagıtanKisi"]);
-        $this->KisiListesli=$gelenVeriler;
-        $this->KisiListesli= count($gelenVeriler);
+        $sorgu = "select * from yemekdagıtılanyerler ";
+        $veriTabanı = new veriTabanıSorgular();
+        $gelenVeriler = $veriTabanı->VeriCekme($sorgu, "Veri çekme", $veriTabanı->Baglnatı());
+        if ($gelenVeriler != null) {
+            for ($i = 0; $i < count($gelenVeriler); $i++) {
+
+                $this->setId($gelenVeriler[$i]["id"]);
+                $this->setSokakId($gelenVeriler[$i]["sokakId"]);
+                $this->setYemekDagıtanKisiId($gelenVeriler[$i]["yemekDagıtanKisi"]);
+                $this->KisiListesli = $gelenVeriler;
+            }
         }
     }
-    public function YerEKle($SokakId,$YemekDagıtanKisiId){
-        $sorgu="INSERT INTO yemekdagıtılanyerler(sokakId, yemekDagıtanKisi) VALUES ($SokakId,$YemekDagıtanKisiId)";
-        $veriTabanı=new veriTabanıSorgular();
-        $gelenVeriler=$veriTabanı->Degistirme($sorgu,"Kayıt ekleme",$veriTabanı->Baglnatı());
+
+    public function YerEKle($SokakId, $YemekDagıtanKisiId)
+    {
+        $sorgu = "INSERT INTO yemekdagıtılanyerler(sokakId, yemekDagıtanKisi) VALUES ($SokakId,$YemekDagıtanKisiId)";
+        $veriTabanı = new veriTabanıSorgular();
+        $gelenVeriler = $veriTabanı->Degistirme($sorgu, "Kayıt ekleme", $veriTabanı->Baglnatı());
     }
 
     /**
@@ -57,11 +61,13 @@ public $KisiListesli;
      * Yeni veriler <b>"set"</b> metotlarıyla güncellendikten sonra bir kere çalıştırılması gereken metot.
      * @param $id
      */
-    public function Guncelle($id){
-        $sorgu="update yemekDagıtılanYerler set sokakId=$this->sokakId,yemekDagıtanKisiId=$this->yemekDagıtanKisiId where id=$id";
-        $veriTabanı=new veriTabanıSorgular();
-        $veriTabanı->Degistirme($sorgu,"Guncelleme",$veriTabanı->Baglnatı());
+    public function Guncelle($id)
+    {
+        $sorgu = "update yemekDagıtılanYerler set sokakId=$this->sokakId,yemekDagıtanKisiId=$this->yemekDagıtanKisiId where id=$id";
+        $veriTabanı = new veriTabanıSorgular();
+        $veriTabanı->Degistirme($sorgu, "Guncelleme", $veriTabanı->Baglnatı());
     }
+
     /**
      * @return mixed
      */
@@ -75,7 +81,7 @@ public $KisiListesli;
      */
     public function setId($id): void
     {
-        $this->id = $id;
+        array_push($this->id, $id);
     }
 
     /**
@@ -91,7 +97,7 @@ public $KisiListesli;
      */
     public function setSokakId($sokakId): void
     {
-        $this->sokakId = $sokakId;
+       array_push( $this->sokakId , $sokakId);
     }
 
     /**
@@ -107,7 +113,7 @@ public $KisiListesli;
      */
     public function setYemekDagıtanKisiId($yemekDagıtanKisiId): void
     {
-        $this->yemekDagıtanKisiId = $yemekDagıtanKisiId;
+       array_push( $this->yemekDagıtanKisiId ,$yemekDagıtanKisiId);
     }
 
 

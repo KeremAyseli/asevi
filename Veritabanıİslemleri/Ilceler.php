@@ -5,36 +5,20 @@ class Ilceler
 public $IlceId;
 public $IlceIsim;
 public $SehirId;
-public $MahalleId;
-public $SokakId;
-public $IlceSayısı;
 
 
 
-    public function __construct()
-    {
-        $sorgu="select * from ilceler";
-        $veriTabanı=new veriTabanıSorgular();
-        $gelenVeriler=$veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
-        $this->setIlceId($gelenVeriler["IlceId"]);
-        $this->setIlceIsim($gelenVeriler["IlceIsım"]);
-        $this->setSehirId($gelenVeriler["SehirId"]);
-        $this->setMahalleId($gelenVeriler["MahalleId"]);
-        $this->setSokakId($gelenVeriler["SokakId"]);
-        $this->setIlceSayısı($veriTabanı->satırSayısı);
-    }
-    public function IlceGetir($id)
+
+    public function __construct($id)
     {
         $sorgu="select * from ilceler where IlceId=$id";
         $veriTabanı=new veriTabanıSorgular();
         $gelenVeriler=$veriTabanı->VeriCekme($sorgu,"Veri çekme",$veriTabanı->Baglnatı());
-        $this->setIlceId($gelenVeriler["IlceId"]);
-        $this->setIlceIsim($gelenVeriler["IlceIsım"]);
-        $this->setSehirId($gelenVeriler["SehirId"]);
-        $this->setMahalleId($gelenVeriler["MahalleId"]);
-        $this->setSokakId($gelenVeriler["SokakId"]);
-        $this->setIlceSayısı($veriTabanı->satırSayısı);
+        $this->setIlceId($gelenVeriler[0]["IlceId"]);
+        $this->setIlceIsim($gelenVeriler[0]["IlceIsım"]);
+        $this->setSehirId($gelenVeriler[0]["SehirId"]);
     }
+
     public function Guncelleme($id){
         $sorgu="update ilceler set IlceIsım=$this->IlceIsim,
                 SehirId=$this->SehirId,
@@ -93,35 +77,5 @@ public $IlceSayısı;
         $this->SehirId = $SehirId;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMahalleId()
-    {
-        return $this->MahalleId;
-    }
 
-    /**
-     * @param mixed $MahalleId
-     */
-    public function setMahalleId($MahalleId): void
-    {
-        $this->MahalleId = $MahalleId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSokakId()
-    {
-        return $this->SokakId;
-    }
-
-    /**
-     * @param mixed $SokakId
-     */
-    public function setSokakId($SokakId): void
-    {
-        $this->SokakId = $SokakId;
-    }
 }

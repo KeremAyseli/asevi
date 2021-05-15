@@ -6,19 +6,17 @@ class Mahalleler
    public $IlceId;
    public $MahalleId;
    public $MahalleIsmı;
-   public $SokakId;
    public $SponsorId;
 
     public function __construct($id)
     {
-        $sorgu="select * from mahalleler where MahalleId=$id";
+        $sorgu="select * from mahallerler where MahalleId=$id";
         $veriTabani=new veriTabanıSorgular();
        $gelenVeriler= $veriTabani->VeriCekme($sorgu,"Veri çekme",$veriTabani->Baglnatı());
-        $this->setIlceId($gelenVeriler["IlceId"]);
-        $this->setMahalleId($gelenVeriler["MahalleId"]);
-        $this->setMahalleIsmı($gelenVeriler["MahalleIsmı"]);
-        $this->setSokakId($gelenVeriler["SokakId"]);
-        $this->setSponsorId($gelenVeriler["SponsorId"]);
+       $this->setIlceId($gelenVeriler[0]["IlceId"]);
+        $this->setMahalleId($gelenVeriler[0]["MahalleId"]);
+        $this->setMahalleIsmı($gelenVeriler[0]["MahalleIsım"]);
+        $this->setSponsorId($gelenVeriler[0]["SponsorId"]);
 
     }
 
@@ -78,23 +76,6 @@ class Mahalleler
     {
         $this->MahalleIsmı = $MahalleIsmı;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getSokakId()
-    {
-        return $this->SokakId;
-    }
-
-    /**
-     * @param mixed $SokakId
-     */
-    public function setSokakId($SokakId): void
-    {
-        $this->SokakId = $SokakId;
-    }
-
     /**
      * @return mixed
      */

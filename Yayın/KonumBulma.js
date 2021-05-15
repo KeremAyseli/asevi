@@ -86,10 +86,11 @@ $("#Mahalleler").on("change", function () {
 
 
 $('#Gonder').click(function () {
-    var EvsizSayısı = $('#EvsizSayısı').val();
-    var HayvanSayısı = $('#HayvanSayısı').val();
-    var AileSayısı = $('#AileSayısı').val();
-    var OgrenciSayısı = $('#OgrenciSayısı').val();
+     console.log($('#EvsizSayısı').val()!=null ? "Yanlış":"Doğru");
+    var EvsizSayısı = $('#EvsizSayısı').val()!=null ? 0:$('#EvsizSayısı').val();
+    var HayvanSayısı = $('#HayvanSayısı').val()!=null ? 0 :$('#HayvanSayısı').val();
+    var AileSayısı = $('#AileSayısı').val()!=null ? 0:$('#AileSayısı').val();
+    var OgrenciSayısı = $('#OgrenciSayısı').val()!=null ? 0:$('#OgrenciSayısı').val();
     console.log(EvsizSayısı);
     $.ajax({
         type: "POST",

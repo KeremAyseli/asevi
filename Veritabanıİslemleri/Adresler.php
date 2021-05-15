@@ -4,11 +4,9 @@
 class Adresler
 {
 
-    public $SehirId;
-    public $SehirIsmi;
-    public $IlceId;
-    public $MahalleId;
-    public $SokakId;
+    public $SehirId = array();
+    public $SehirIsmi = array();
+
 
     /**
      * @return mixed
@@ -23,7 +21,7 @@ class Adresler
      */
     public function setSehirId($SehirId): void
     {
-        $this->SehirId = $SehirId;
+        array_push($this->SehirId, $SehirId);
     }
 
     /**
@@ -39,77 +37,27 @@ class Adresler
      */
     public function setSehirIsmi($SehirIsmi): void
     {
-        $this->SehirIsmi = $SehirIsmi;
+        array_push($this->SehirIsmi, $SehirIsmi);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIlceId()
-    {
-        return $this->IlceId;
-    }
 
-    /**
-     * @param mixed $IlceId
-     */
-    public function setIlceId($IlceId): void
-    {
-        $this->IlceId = $IlceId;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getMahalleId()
-    {
-        return $this->MahalleId;
-    }
-
-    /**
-     * @param mixed $MahalleId
-     */
-    public function setMahalleId($MahalleId): void
-    {
-        $this->MahalleId = $MahalleId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSokakId()
-    {
-        return $this->SokakId;
-    }
-
-    /**
-     * @param mixed $SokakId
-     */
-    public function setSokakId($SokakId): void
-    {
-        $this->SokakId = $SokakId;
-    }
 
     public function __construct($id)
     {
-        $VeriTabani=new veriTabanıSorgular();
-        $sorgu="select * from adresler where SehirId=$id";
-     $gelenveriler=$VeriTabani->VeriCekme($sorgu,"Veri Çekme",$VeriTabani->Baglnatı());
-        $this->setSehirId($gelenveriler["SehirId"]);
-        $this->setSehirIsmi($gelenveriler["Sehirisim"]);
-        $this->setIlceId($gelenveriler["ilçeId"]);
-        $this->setMahalleId($gelenveriler["MahalleId"]);
-        $this->setSokakId($gelenveriler["SokakId"]);
+        $VeriTabani = new veriTabanıSorgular();
+        $sorgu = "select * from adresler where SehirId=$id";
+        $gelenveriler = $VeriTabani->VeriCekme($sorgu, "Veri Çekme", $VeriTabani->Baglnatı());
+            $this->setSehirId($gelenveriler[0]['SehirId']);
+            $this->setSehirIsmi($gelenveriler[0]['Sehirisim']);
     }
-    public function Guncelleme($id){
-        $sorgu="update adresler set SehirIsmi=$this->SehirIsmi,
-                IlceId=$this->IlceId,
-                MahalleId=$this->MahalleId,
-                SokakId=$this->SokakId 
-                 where SehirId=$id";
-        $guncelleme=new veriTabanıSorgular();
-        $guncelleme->Degistirme($sorgu,"Güncelleme",$guncelleme->Baglnatı());
 
-}
+    public function Guncelleme($id)
+    {
+        $sorgu = "update adresler set SehirIsmi=$this->SehirIsmi where SehirId=$id";
+        $guncelleme = new veriTabanıSorgular();
+        $guncelleme->Degistirme($sorgu, "Güncelleme", $guncelleme->Baglnatı());
+
+    }
 
 }

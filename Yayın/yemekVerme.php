@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(empty($_SESSION['id']))
+{
+    header("Location:./GirisEkranı.html");
+}
+else {
+    echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,25 +19,24 @@
 <form action="../sayfaİslemleri/yemekVerme.php" method="post">
     <label>İlce seçin</label>
     <select id="Ilceler">
-        <option> </option>
+        <option></option>
     </select><br>
     <label>Mahalle girin</label>
     <select id="Mahalleler">
-        <option> </option>
+        <option></option>
     </select><br>
     <label>Sokak girin</label>
     <select name="sokakId" id="Sokaklar">
-       <option> </option>
+        <option></option>
     </select><br>
-    <label for="yemekDagitanKisi">Yemek dağıtan kişiyi giriniz:</label>
-    <input type="text" name="yemekDagıtanKisi" id="yemekDagitanKisi"><br>
+    <input type="hidden" value=' . $_SESSION['id'] . ' id="yemekDagitanKisi"><br>
 
     <button type="submit">Yemek ver</button>
     <script type="text/javascript" src="KonumBulma.js"></script>
 </form>
 </body>
-</html>
-
+</html>';
+}?>
 
 
 
