@@ -1,13 +1,37 @@
 var sokaklar = $("#Sokaklar");
 var mahalleler = $("#Mahalleler");
 $(document).ready(function () {
+
     $.ajax(
         {
             type: "POST",
-            data: {"Id": null, "TabloIsım": "Ilceler", "UstTablo": null},
+            data: {"Id": null, "TabloIsım": "adresler", "UstTablo": null},
             url: "../sayfaİslemleri/yemekVermeJs.php",
             success:
                 function (result) {
+                    var SehirBilgileri = JSON.parse(result);
+                    $("#adresler").append(new Option("---","---"));
+                    for (var i = 0; i < SehirBilgileri.length; i++) {
+                        $("#adresler").append(new Option(SehirBilgileri[i].Sehirisim, SehirBilgileri[i].SehirId));
+                    }
+                },
+            error:
+                function (result) {
+                    alert("Hata meydana geldi" + result);
+                }
+        })
+});
+$("#adresler").on("change",function () {
+    var SehirId=$("#adresler").val();
+
+    $.ajax(
+        {
+            type: "POST",
+            data: {"Id": SehirId, "TabloIsım": "Ilceler", "UstTablo": "SehirId"},
+            url: "../sayfaİslemleri/yemekVermeJs.php",
+            success:
+                function (result) {
+                console.log(result);
                     var IlceBigileri = JSON.parse(result);
                     for (var i = 0; i < IlceBigileri.length; i++) {
                         $("#Ilceler").append(new Option(IlceBigileri[i].IlceIsım, IlceBigileri[i].IlceId));

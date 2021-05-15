@@ -17,6 +17,8 @@ else {
 <body>
 
 <form action="../sayfaİslemleri/yemekVerme.php" method="post">
+<label>Şehir seçin</label>
+<select id="adresler"></select>
     <label>İlce seçin</label>
     <select id="Ilceler">
         <option></option>
