@@ -18,21 +18,20 @@ else {
 
 <form action="../sayfaİslemleri/yemekVerme.php" method="post">
 <label>Şehir seçin</label>
-<select id="adresler"></select>
+<select name="adresler" id="adresler"></select>
     <label>İlce seçin</label>
-    <select id="Ilceler">
+    <select name="Ilceler" id="Ilceler">
         <option></option>
     </select><br>
     <label>Mahalle girin</label>
-    <select id="Mahalleler">
+    <select name="Mahalleler" id="Mahalleler">
         <option></option>
     </select><br>
     <label>Sokak girin</label>
     <select name="sokakId" id="Sokaklar">
         <option></option>
     </select><br>
-    <input type="hidden" value=' . $_SESSION['id'] . ' id="yemekDagitanKisi"><br>
-
+    <input type="hidden" value="' . $_SESSION['id'] . '" name="yemekDagitanKisi" id="yemekDagitanKisi"><br>
     <button type="submit">Yemek ver</button>
     <script type="text/javascript" src="KonumBulma.js"></script>
 </form>

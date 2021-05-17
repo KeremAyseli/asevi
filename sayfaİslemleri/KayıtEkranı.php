@@ -1,42 +1,30 @@
 <?php
-if(isset($_POST['Id'])&&isset($_POST['isim'])&&isset($_POST['soyisim'])&&isset($_POST['eposta'])&&isset($_POST['dogumGunu'])&&isset($_POST['sifre'])&&isset($_FILES['resim'])) {
- $resimTur=$_FILES['resim']["type"];
- $resimTmpİsim=$_FILES['resim']['tmp_name'];
- $resimBoyut=$_FILES['resim']['size'];
- $resimDosyasıAdresi=$_SERVER['DOCUMENT_ROOT'].'/asevi/resimler/';
- $resimHedef=$resimDosyasıAdresi.basename($_FILES['resim']['name']);
- if($resimTur=="image/gif"||$resimTur=="image/png"
-     ||$resimTur=="image/jpeg"||$resimTur=="image/jpg")
- {
-     if($resimBoyut>(1024*1024*10)){
-         echo "Dosya çok büyük";
-     }
-     else{
-         move_uploaded_file($resimTmpİsim,$resimHedef);
-     }
- }
+if(!empty($_POST['isim'])&&!empty($_POST['soyisim'])&&!empty($_POST['eposta'])&&!empty($_POST['dogumGunu'])&&!empty($_POST['sifre'])) {
+
     require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
     require ($_SERVER["DOCUMENT_ROOT"]."/asevi/Yonlendirme/Yonlendirici.php");
-    $id=$_POST['Id'];
+    session_start();
     $isim=$_POST['isim'];
     $soyisim=$_POST['soyisim'];
     $eposta=$_POST['eposta'];
     $dogumGunu=$_POST['dogumGunu'];
     $sifre=$_POST['sifre'];
-    $resim="../resimler/".$_FILES['resim']['name'];
-    echo $id." ".$isim." ".$soyisim;
+    $_SESSION['KayıtId']=$_POST['eposta'];
     $ekleme=new veriTabanıSorgular();
     $yonlendirme=new Yonlendirici();
-  $kontrol= $ekleme->yeniKullanıcı($id,$isim,$soyisim,$eposta,$sifre,$dogumGunu,0,$resim);
+  $kontrol= $ekleme->yeniKullanıcı($isim,$soyisim,$eposta,$sifre,$dogumGunu,0);
   if($kontrol==1){
- $yonlendirme->anaSayfa();
+      echo "kayıtBAŞARILI";
+
   }
   else{
-  $yonlendirme->kayıtEkranı();
+      echo "KAYIT BAŞARISIZ";
+
   }
 }
 else{
-
+    var_dump($_POST);
+echo "başrısız";
 }
 
 

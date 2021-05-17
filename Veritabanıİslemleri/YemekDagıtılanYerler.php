@@ -45,8 +45,9 @@ class YemekDagıtılanYerler
         }
     }
 
-    public function YerEKle($SokakId, $YemekDagıtanKisiId)
+    public function YerEKle($SokakId, $YemekDagıtanKisiId,$tarih)
     {
+        date_default_timezone_set('UTC');
         $sorgu = "INSERT INTO yemekdagıtılanyerler(sokakId, yemekDagıtanKisi) VALUES ($SokakId,$YemekDagıtanKisiId)";
         $veriTabanı = new veriTabanıSorgular();
         $gelenVeriler = $veriTabanı->Degistirme($sorgu, "Kayıt ekleme", $veriTabanı->Baglnatı());

@@ -34,13 +34,17 @@ class veriTabanıSorgular
      * @param $profilResimAdres
      * VeriTabanına kullanıcı eklemeye yarayan fonksiyon.
      */
-  function yeniKullanıcı($id,$isim,$soyisim,$eposta,$sifre,$dogumGunu,$kullanıcıTipi,$profilResimAdres){
-
+  function yeniKullanıcı($isim,$soyisim,$eposta,$sifre,$dogumGunu,$kullanıcıTipi){
       $uyelikTarihi=date("Y-m-d");
       $kullanıcıDogumGunu=date($dogumGunu);
-      $kisiEklemeSorgusu = "INSERT INTO kullanıcılar(id,isim,soyisim,sifre,Eposta,dogunGunu,hesapTipi,uyelikTarihi,profilResimAdresi)VALUES( $id,'$isim','$soyisim','$sifre','$eposta','$kullanıcıDogumGunu',$kullanıcıTipi,'$uyelikTarihi','$profilResimAdres')";
+      $kisiEklemeSorgusu = "INSERT INTO kullanıcılar(isim,soyisim,sifre,Eposta,dogunGunu,hesapTipi,uyelikTarihi)VALUES('$isim','$soyisim','$sifre','$eposta','$kullanıcıDogumGunu',$kullanıcıTipi,'$uyelikTarihi')";
       $kayıtEkelemKontrol= $this->Degistirme($kisiEklemeSorgusu,"KisiEkleme",$this->Baglnatı());
       return $kayıtEkelemKontrol;
+  }
+  function kullanıcıResimEkleme($resimAdresi,$id){
+      $sorgu ="update kullanıcılar set profilResimAdresi='".$resimAdresi."' where eposta='".$id."'";
+      echo $sorgu;
+      $resimEkleme=$this->Degistirme($sorgu,"ProfilResmiEkleme",$this->Baglnatı());
   }
 
     /**

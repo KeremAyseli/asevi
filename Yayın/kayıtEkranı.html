@@ -2,29 +2,57 @@
 <meta charset="UTF-8">
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
 </head>
-<body >
+<body>
 
-<form action="../sayfaİslemleri/KayıtEkranı.php" method="post" enctype="multipart/form-data">
-    <label>Kimlik numaranızı girin</label><br>
-    <input type=number name="Id"><br>
+<form enctype="multipart/form-data" id="Form">
     <label>İsminizi girin</label><br>
-    <input type="text" name="isim"><br>
+    <input type="text" id="isim" name="isim"><br>
     <label>Soyisiminiz girin</label><br>
-    <input type="text" name="soyisim"><br>
+    <input type="text" id="soyisim" name="soyisim"><br>
     <label>E-postanızı giriniz</label><br>
-    <input type="email" name="eposta"><br>
+    <input type="email" id="eposta" name="eposta"><br>
     <label>Dogum gününüzü girin</label><br>
-    <input type="date" name="dogumGunu"><br>
-    <label>Profil resmi seçin</label><br>
-    <input type="file" name="resim"/><br>
+    <input type="date" id="dogumGunu" name="dogumGunu"><br>
     <label>Şifre belirleyin</label><br>
-    <input type="password" name="sifre"><br>
-    <button type="submit">BAS</button><br>
-    <button type="button" >adres al</button>
+    <input type="password" id="sifre" name="sifre"><br>
+    <button type="submit" id="BilgileriGonder">BAS</button>
+    <br>
+    <button type="button" id="BilgileriGonder1">BAS1</button>
+    <br>
 </form>
 </body>
+<script>
+    $("#BilgileriGonder1").click(function () {
+
+        var isim = $("#isim").val();
+        var soyisim = $("#soyisim").val();
+        var eposta = $("#eposta").val();
+        var dogumGunu = $("#dogumGunu").val();
+        var sifre = $("#sifre").val();
+
+        $.ajax({
+            method: "POST",
+            url: "../sayfaİslemleri/KayıtEkranı.php",
+            data: {
+                "isim": isim,
+                "soyisim": soyisim,
+                "eposta": eposta,
+                "dogumGunu": dogumGunu,
+                "sifre": sifre
+            },
+            success:
+                function (result) {
+                    window.location="resimSecme.php";
+                },
+            error:
+                function (result) {
+                    console.log(result);
+                }
+        });
+    })
+</script>
 </html>
+
 
