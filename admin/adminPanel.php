@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../Yayın/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 
