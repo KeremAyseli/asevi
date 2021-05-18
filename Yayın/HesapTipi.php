@@ -1,6 +1,6 @@
 <?php
 
-include ("veriTabanıSorgular.php");
+include("veriTabanıSorgular.php");
 class HesapTipi
 {
 public $kullanıcıId;

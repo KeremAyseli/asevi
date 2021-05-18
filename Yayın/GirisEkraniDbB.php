@@ -1,7 +1,7 @@
 <?php
 
-include ("veriTabanıSorgular.php");
-class GirisEkrani
+include("veriTabanıSorgular.php");
+class GirisEkraniDbB
 {
   public $KullanıcıId;
   public $Eposta;

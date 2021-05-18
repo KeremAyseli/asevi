@@ -1,10 +1,10 @@
 <?php
 
-include ("Adresler.php");
-include ("Ilceler.php");
-include ("MahalleDurum.php");
-include ("Sokaklar.php");
-include ("Mahalleler.php");
+include("Adresler.php");
+include("Ilceler.php");
+include("MahalleDurum.php");
+include("Sokaklar.php");
+include("Mahalleler.php");
 class AdresBulma
 {
     public $Sehir;
