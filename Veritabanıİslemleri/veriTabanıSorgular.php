@@ -21,7 +21,7 @@ class veriTabanıSorgular
         return $this->satırSayısı;
     }
     function Baglnatı(){
-        return $Baglnatı=new PDO("mysql:host=localhost;dbname=asevi", "root", null);
+        return $Baglnatı=new PDO("mysql:host=localhost;dbname=asevim", "root", null);
     }
     /**
      * @param $id
@@ -57,10 +57,10 @@ class veriTabanıSorgular
 
      $gelenDeger= $this->VeriDorulama($sorgu,"Giriş",$this->Baglnatı());
       if($gelenDeger==1){
-          header("Location:./anasayfa.php");
+          return 1;
       }
       else{
-          header("Location:./login.html");
+          return 0;
       }
   }
 

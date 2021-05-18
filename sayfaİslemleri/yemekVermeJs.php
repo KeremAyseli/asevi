@@ -1,4 +1,7 @@
 <?php
+//*
+//Konumbulma.js sınıfından değerleri cevaplama için bu script dosyasını oluşturdum
+//*//
 include($_SERVER["DOCUMENT_ROOT"] . "/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
 $veriTabani = new veriTabanıSorgular();
 if(empty($_POST['Id']))
@@ -18,5 +21,6 @@ if(!empty($_POST['Id']))
     for($i=0;$i<count($sonuc);$i++){
         array_push($gelenDegerler,$sonuc[$i]);
     }
+    //Bulunan veriler json olarak ekrana basılması
     echo json_encode($gelenDegerler,JSON_UNESCAPED_UNICODE);
 }

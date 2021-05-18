@@ -1,7 +1,7 @@
 var sokaklar = $("#Sokaklar");
 var mahalleler = $("#Mahalleler");
 $(document).ready(function () {
-
+console.log("deneme");
     $.ajax(
         {
             type: "POST",
@@ -23,7 +23,6 @@ $(document).ready(function () {
 });
 $("#adresler").on("change",function () {
     var SehirId=$("#adresler").val();
-
     $.ajax(
         {
             type: "POST",
@@ -45,7 +44,6 @@ $("#adresler").on("change",function () {
 });
 $("#Ilceler").on("change", function () {
         mahalleler.empty();
-
         var IlceId = $("#Ilceler").val();
         console.log(IlceId);
         $.ajax({
@@ -110,7 +108,6 @@ $("#Mahalleler").on("change", function () {
 
 
 $('#Gonder').click(function () {
-     console.log($('#EvsizSayısı').val()!=null ? "Yanlış":"Doğru");
     var EvsizSayısı = $('#EvsizSayısı').val()!=null ? 0:$('#EvsizSayısı').val();
     var HayvanSayısı = $('#HayvanSayısı').val()!=null ? 0 :$('#HayvanSayısı').val();
     var AileSayısı = $('#AileSayısı').val()!=null ? 0:$('#AileSayısı').val();
@@ -127,12 +124,12 @@ $('#Gonder').click(function () {
         },
         url: "../sayfaİslemleri/BolgeDurumGirme.php",
         success:
-           function (result){
-            console.log(result);
+           function (){
+            window.location="anasayfa.php";
            },
         error:
-            function (result) {
-                alert(result);
+            function () {
+                alert("Hata");
             }
     });
 });

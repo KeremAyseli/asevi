@@ -1,45 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>night_sky - examples</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
     <script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
 </head>
-<body>
-<form enctype="multipart/form-data" id="Form">
-    <label>Profil resmi seçin</label><br>
-    <input type="file" id="resim" name="resim"/><br>
-    <input type="hidden" value="<?php session_start(); echo $_SESSION['KayıtId']?>" id="id">
-    <button id="buton" type="button">bas</button>
 
-</form>
+<body>
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <div id="logo_text">
+
+                <h1><a href="index.html">As<span class="logo_colour">evim</span></a></h1>
+                <h2>Bir yardim kurulusudur.</h2>
+            </div>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+
+                <li><a href="index.html">Anasayfa</a></li>
+                <li class="selected"><a href="examples.html">Giris</a></li>
+                <li><a href="page.html">Men�</a></li>
+                <li><a href="another_page.html">Hakkimizda</a></li>
+                <li><a href="contact.html">Kayit Ol</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div class="sidebar">
+            <h1><h1>G�n�n Yemegi</h1>
+                <h4>16.01.2021</h4><b>
+
+                    <p>tavuk suyu &ccedil;orbas&#305; , salata , bulgur pilkav&#305; , hurma tatl&#305;s&#305;</p></b>
+                <h1>Bu g&uuml;n Nerdeyiz?</h1>
+                <p>&#304;stanbul &#350;i&#351;li 19 may&#305;s caddesi.</p>
+                <p><br>
+                </p>
+                <h1>Ba&#287;&#305;&#351;&ccedil;&#305;lar&#305;m&#305;za te&#351;ekk&uuml;r ederiz...</h1>
+                <p><br>
+                    <br>
+
+                </p>
+                <form method="post" action="#" id="search_form">
+                    <p>ileti&#351;im : 0532 794 32 26</p>
+                    <p> Mail:AsEvim@gmail.com</p>
+                    <form method="post" action="#" id="search_form1">
+                        <p>&nbsp;</p>
+                    </form>
+                </form>
+            </h1>
+        </div>
+        <div id="content">
+            <form enctype="multipart/form-data" id="Form">
+                <label>Profil resmi seçin</label><br>
+                <input type="file" id="resim" name="resim"/><br>
+                <input type="hidden" value="<?php session_start(); echo $_SESSION['KayıtId']?>" id="id">
+                <button id="buton" type="button">Kaydet</button>
+                <script type="text/javascript" src="resimsecme.js"></script>
+            </form>
+            <h1>&nbsp;</h1>
+            <h2>&nbsp;</h2>
+            <form action="#" method="post">
+                <div class="form_settings">          </div>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        <p>&nbsp;</p>
+    </div>
+</div>
 </body>
 </html>
-<script>
-    $("#buton").click(function () {
-        var data = new FormData();
-        $.each($('#resim')[0].files, function (i, file) {
-            data.append('resim' + i, file);
-        });
-        data.append("Id",$("#id").val());
-        $.ajax({
-            url: '../sayfaİslemleri/resimEkleme.php',
-            data: data,
-            enctype: 'multipart/form-data',
-            processData:false,
-            contentType: false,
-            cache:false,
-
-            method: 'POST', // For jQuery < 1.9
-            success: function (data) {
-                console.log(data);
-            },
-            error:
-                function (result) {
-                    console.log(result);
-                }
-        });
-
-    });
-
-</script>

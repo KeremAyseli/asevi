@@ -15,6 +15,10 @@ if (!empty($_FILES['resim0'])&&!empty($_POST['Id'])) {
             move_uploaded_file($resimTmpİsim, $resimHedef);
         }
     }
+    echo $resimDosyasıAdresi."   ";
+    echo $resimHedef."   ";
+    echo $resimTmpİsim."  ";
+
     $resim="../resimler/".$_FILES['resim0']['name'];
      $veriTabanı=new veriTabanıSorgular();
 echo $resim;
