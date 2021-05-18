@@ -5,7 +5,7 @@
 //Gelen değerler boş değilse yapılacak işlemler
 if(!empty($_POST['isim'])&&!empty($_POST['soyisim'])&&!empty($_POST['eposta'])&&!empty($_POST['dogumGunu'])&&!empty($_POST['sifre'])) {
 
-    require($_SERVER["DOCUMENT_ROOT"]."/asevi/Veritabanıİslemleri/veriTabanıSorgular.php");
+    require($_SERVER["DOCUMENT_ROOT"]."/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
     require ($_SERVER["DOCUMENT_ROOT"]."/asevi/Yonlendirme/Yonlendirici.php");
     //sesssionların başlatılması
     session_start();

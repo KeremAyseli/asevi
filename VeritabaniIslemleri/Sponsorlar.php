@@ -1,6 +1,6 @@
 <?php
 
-include ("Veritabanıİslemleri/veriTabanıSorgular.php");
+include("VeritabaniIslemleri/veriTabanıSorgular.php");
 class Sponsorlar
 {
 public $sponsorId;
