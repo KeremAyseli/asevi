@@ -65,7 +65,7 @@ else {
             </h1>
         </div>
         <div id="content">
-            <form action="../sayfaİslemleri/yemekVerme.php" method="post">
+            <form action="../sayfaİslemleri/yemekVermeDB.php" method="post">
                 <label>Şehir seçin</label>
                 <select name="adresler" id="adresler"></select>
                 <label>İlce seçin</label>

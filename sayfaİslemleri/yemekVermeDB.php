@@ -14,8 +14,8 @@ if (!empty($_POST["adresler"]) && !empty($_POST["Ilceler"]) && !empty($_POST["Ma
     $tarih= date("Y-m-d");
     //Yer ekleme methodunun çalıştırılması
     $kayıtGirme->YerEKle($sokakId, $yemekDagitanKisiId,$tarih);
-    header("Location:../Yayın/yemekVerme.php");
+    header("Location:../Yayın/yemekVermeDB.php");
 } else {
-    header("Location:../Yayın/yemekVerme.php");
+    header("Location:../Yayın/yemekVermeDB.php");
 } ?>
 
