@@ -6,7 +6,7 @@ console.log("deneme");
         {
             type: "POST",
             data: {"Id": null, "TabloIsım": "adresler", "UstTablo": null},
-            url: "../sayfaİslemleri/yemekVermeJs.php",
+            url: "./yemekVermeJs.php",
             success:
                 function (result) {
                     var SehirBilgileri = JSON.parse(result);
@@ -27,7 +27,7 @@ $("#adresler").on("change",function () {
         {
             type: "POST",
             data: {"Id": SehirId, "TabloIsım": "Ilceler", "UstTablo": "SehirId"},
-            url: "../sayfaİslemleri/yemekVermeJs.php",
+            url: "./yemekVermeJs.php",
             success:
                 function (result) {
                 console.log(result);
@@ -49,7 +49,7 @@ $("#Ilceler").on("change", function () {
         $.ajax({
             type: "POST",
             data: {"Id": IlceId, "TabloIsım": "Mahallerler", "UstTablo": "IlceId"},
-            url: "../sayfaİslemleri/yemekVermeJs.php",
+            url: "./yemekVermeJs.php",
             success:
                 function (result) {
                     console.log(result);
@@ -80,7 +80,7 @@ $("#Mahalleler").on("change", function () {
     $.ajax({
             type: "POST"
             , data: {"Id": mahalleId, "TabloIsım": "sokaklar", "UstTablo": "MahalleId"},
-            url: "../sayfaİslemleri/yemekVermeJs.php",
+            url: "./yemekVermeJs.php",
             success:
                 function (resultSokaklar) {
                     console.log(resultSokaklar);
@@ -122,7 +122,7 @@ $('#Gonder').click(function () {
             "AileSayısı": AileSayısı,
             "OgrenciSayısı": OgrenciSayısı
         },
-        url: "../sayfaİslemleri/BolgeDurumGirme.php",
+        url: "./BolgeDurumGirme.php",
         success:
            function (){
             window.location="anasayfa.php";
@@ -139,7 +139,7 @@ $("#SorgulamaButonu").click(function (){
         data:{
             "MahalleId":mahalleler.val()
         },
-        url:"../sayfaİslemleri/BolgeOrtalamasıAlma.php",
+        url:"./BolgeOrtalamasıAlma.php",
         success:
         function (result){
             console.log(result);

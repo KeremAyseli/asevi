@@ -4,7 +4,7 @@ $("#GirisButonu").click(function (){
     var sifre =$("#sifre").val();
     $.ajax({
         method:"POST",
-        url:"../sayfaİslemleri/GirisEkrani.php",
+        url:"./GirisEkrani.php",
         data:{"Eposta":eposta,"Sifre":sifre},
         success:
             function (result){

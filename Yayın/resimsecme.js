@@ -7,7 +7,7 @@ $("#buton").click(function () {
     });
     data.append("Id",$("#id").val());
     $.ajax({
-        url: '../sayfaİslemleri/resimEkleme.php',
+        url: './resimEkleme.php',
         data: data,
         enctype: 'multipart/form-data',
         processData:false,
