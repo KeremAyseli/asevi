@@ -8,7 +8,7 @@ console.log("tıklandı");
 
     $.ajax({
         method: "POST",
-        url: ".KayıtEkranıDB.php",
+        url: "./KayıtEkranıDB.php",
         data: {
             "isim": isim,
             "soyisim": soyisim,
