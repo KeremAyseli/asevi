@@ -1,7 +1,7 @@
 <?php
 var_dump($_FILES);
 if (!empty($_FILES['resim0'])&&!empty($_POST['Id'])) {
-    include ("/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
+    include ("veriTabanıSorgular.php");
     $resimTur = $_FILES['resim0']["type"];
     $resimTmpİsim = $_FILES['resim0']['tmp_name'];
     $resimBoyut = $_FILES['resim0']['size'];

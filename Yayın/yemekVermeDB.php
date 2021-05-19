@@ -2,8 +2,8 @@
 //*
 //Yemek verme bilgilerini veritabanına kaydetmek için oluşturduğum script kodu.
 //*//
-include("/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
-include("/asevi/VeritabaniIslemleri/YemekDagıtılanYerler.php");
+include("veriTabanıSorgular.php");
+include("YemekDagıtılanYerler.php");
 if (!empty($_POST["adresler"]) && !empty($_POST["Ilceler"]) && !empty($_POST["Mahalleler"]) && !empty($_POST["sokakId"]) && !empty($_POST["yemekDagitanKisi"])) {
     echo "işlem başı";
     $sokakId = $_POST['sokakId'];

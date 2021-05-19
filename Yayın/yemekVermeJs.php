@@ -2,7 +2,7 @@
 //*
 //Konumbulma.js sınıfından değerleri cevaplama için bu script dosyasını oluşturdum
 //*//
-include("/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
+include("veriTabanıSorgular.php");
 $veriTabani = new veriTabanıSorgular();
 if(empty($_POST['Id']))
 {

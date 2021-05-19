@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/asevi/VeriTabanıİslemleri/veriTabanıSorgular.php");
+include("veriTabanıSorgular.php");
 
 $veriTabani = new veriTabanıSorgular();
 $sorgu = "SELECT avg(EvsizSayısı)as Evsiz ,avg(HayvanSayısı)as Hayvan,avg(YardımaIhtiyacıOlanAileler) as aileler,avg(OgrenciSayisi)as ogrenci from mahalledurum where MahalleId=".$_POST['MahalleId'];

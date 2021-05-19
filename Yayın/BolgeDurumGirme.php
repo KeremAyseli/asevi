@@ -1,5 +1,5 @@
 <?php
-include("/asevi/VeriTabanıİslemleri/veriTabanıSorgular.php");
+include("veriTabanıSorgular.php");
 
 $sorgu="INSERT INTO `mahalledurum` (`MahalleId`, `EvsizSayısı`, `HayvanSayısı`, `YardımaIhtiyacıOlanAileler`, `OgrenciSayisi`) 
 VALUES (".$_POST['MahalleId'].",".$_POST['EvsizSayısı'].",".$_POST['HayvanSayısı'].", ".$_POST['AileSayısı'].", ".$_POST['OgrenciSayısı'].")";

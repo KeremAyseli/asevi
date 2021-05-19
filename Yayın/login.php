@@ -9,7 +9,7 @@ require ("/asevi/Yonlendirme/Yonlendirici.php");
 //Gelen değerler boş değilse yapılacak işlemler
 if (isset($_POST['Eposta']) && $_POST['Sifre']) {
     //veritabanısorgular sınıfının eklenmesi
-    require("/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
+    require("veriTabanıSorgular.php");
     $eposta = $_POST['Eposta'];
     $sifre = $_POST['Sifre'];
     echo $sifre;

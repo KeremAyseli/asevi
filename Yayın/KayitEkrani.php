@@ -15,7 +15,7 @@ if(isset($_POST['Id'])&&isset($_POST['isim'])&&isset($_POST['soyisim'])&&isset($
          move_uploaded_file($resimTmpİsim,$resimHedef);
      }
  }
-    require("/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
+    require("veriTabanıSorgular.php");
     require ("/asevi/Yonlendirme/Yonlendirici.php");
     $id=$_POST['Id'];
     $isim=$_POST['isim'];

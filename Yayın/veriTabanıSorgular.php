@@ -3,6 +3,7 @@
 
 class veriTabanıSorgular
 {
+
     public $satırSayısı;
 
     /**
@@ -21,7 +22,7 @@ class veriTabanıSorgular
         return $this->satırSayısı;
     }
     function Baglnatı(){
-        return $Baglnatı=new PDO("mysql:host=localhost;dbname=asevi", "root", null);
+        return $Baglnatı=new PDO("mysql:host=127.0.0.1;dbname=asevi","root","123Deneme");
     }
     /**
      * @param $id
