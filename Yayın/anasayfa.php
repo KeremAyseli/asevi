@@ -56,8 +56,8 @@ if (empty($_SESSION['id'])) {
     header("Location:./examples.html");
 } else {
 
-    include($_SERVER["DOCUMENT_ROOT"] . "/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
-    include($_SERVER["DOCUMENT_ROOT"] . "/asevi/VeritabaniIslemleri/AdresBulma.php");
+    include("/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
+    include( "/asevi/VeritabaniIslemleri/AdresBulma.php");
     $veriTabanı = new veriTabanıSorgular();
     $kisiler = $veriTabanı->VeriCekme("select * from kullanıcılar where id=" . $_SESSION['id'], "Kullanıcı verileri Ogrenme", $veriTabanı->Baglnatı());
     $YemekDagıtlanYerler = $veriTabanı->VeriCekme("select * from yemekdagıtılanyerler", "Yemek dagıtılan yerleri listeleme", $veriTabanı->Baglnatı());

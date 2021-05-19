@@ -21,7 +21,7 @@ class veriTabanıSorgular
         return $this->satırSayısı;
     }
     function Baglnatı(){
-        return $Baglnatı=new PDO("mysql:host=localhost;dbname=asevim", "ayselikerem4", "123Ke");
+        return $Baglnatı=new PDO("mysql:host=localhost;dbname=asevi", "root", null);
     }
     /**
      * @param $id

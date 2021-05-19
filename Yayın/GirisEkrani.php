@@ -6,7 +6,7 @@ session_start();
 //Gelen değerler boş değilse yapılacak işlemler.
 if (isset($_POST['Eposta']) && $_POST['Sifre']) {
     //veritabanı sorgular sınıfının include edilmesi
-    include($_SERVER["DOCUMENT_ROOT"] . "/asevi/VeritabaniIslemleri/veriTabanıSorgular.php");
+    include("veriTabanıSorgular.php");
     $eposta = $_POST['Eposta'];
     $sifre = $_POST['Sifre'];
     //veritabanısorgular sınıfının tanımlanması
